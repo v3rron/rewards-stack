@@ -44,6 +44,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Loads .env file into environment in development/test mode
+  gem "dotenv-rails", "~> 3.1"
 end
 
+# Secures CORS for frontend app access
 gem "rack-cors", "~> 3.0"
