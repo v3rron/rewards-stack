@@ -1,5 +1,5 @@
 class Api::V1::ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show update destroy ]
+  before_action :set_product, only: %i[show update destroy]
 
   # GET /products
   def index
@@ -18,7 +18,7 @@ class Api::V1::ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      render json: @product, status: :created, location: @product
+      render json: @product, status: :created, location: polymorphic_url([:api, :v1, @product])
     else
       render json: @product.errors, status: :unprocessable_entity
     end

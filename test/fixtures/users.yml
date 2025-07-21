@@ -1,13 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
-  points: 1
+  email: user1@test.com
+  first_name: FirstName1
+  last_name: LastName1
+  points: 100
 
 two:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
-  points: 1
+  email: user2@test.com
+  first_name: FirstName2
+  last_name: LastName2
+  points: 300
+
+three:
+  email: user3@test.com
+  first_name: FirstName3
+  last_name: LastName3
+  points: 500

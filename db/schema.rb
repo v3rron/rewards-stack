@@ -11,11 +11,21 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_07_21_160856) do
-# Could not dump table "products" because of following StandardError
-#   Unknown type 'uuid' for column 'id'
+  create_table "products", id: { type: :string, limit: 36 }, force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", default: 0, null: false
+    t.integer "stock", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'uuid' for column 'id'
-
+  create_table "users", id: { type: :string, limit: 36 }, force: :cascade do |t|
+    t.string "email", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "points", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
 end
