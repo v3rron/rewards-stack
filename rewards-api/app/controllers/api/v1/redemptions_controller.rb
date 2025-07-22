@@ -20,7 +20,7 @@ class Api::V1::RedemptionsController < ApplicationController
     if @redemption.save
       render json: @redemption, status: :created, location: polymorphic_url([:api, :v1, @redemption])
     else
-      render json: @redemption.errors, status: :unprocessable_entity
+      render json: { errors: @redemption.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

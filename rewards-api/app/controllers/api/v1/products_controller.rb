@@ -20,7 +20,7 @@ class Api::V1::ProductsController < ApplicationController
     if @product.save
       render json: @product, status: :created, location: polymorphic_url([:api, :v1, @product])
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class Api::V1::ProductsController < ApplicationController
     if @product.update(product_params)
       render json: @product
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

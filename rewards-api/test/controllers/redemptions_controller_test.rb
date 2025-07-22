@@ -36,6 +36,6 @@ class RedemptionsControllerTest < ActionDispatch::IntegrationTest
 
     post api_v1_redemptions_url, params: params, as: :json
     assert_response :unprocessable_entity
-    assert_includes JSON.parse(response.body)["user"], "doesn't have enough points"
+    assert_includes JSON.parse(response.body)["errors"], "User doesn't have enough points"
   end
 end

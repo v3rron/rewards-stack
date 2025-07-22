@@ -1,27 +1,38 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { Skeleton } from '@components';
+import { API_URL } from '@lib/constants';
+import { User } from '@lib/types';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/v3rron"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Copyright <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          /> 2025
-        </a>
-      </footer>
+    <div className="flex-1 flex flex-col gap-[32px] justify-center items-center sm:items-start">
+      <em>Note: Since this is a demo project, there is no authentication.</em>
+      <h3 className="font-bold mb-0">Pick your character:</h3>
+      <Suspense fallback={<Skeleton count={3} />}>
+        <Users />
+      </Suspense>
     </div>
   );
+}
+
+async function Users() {
+  const users: User[] = await getUsers();
+
+  return (
+    <ul className="space-y-4">
+      {users.map((user: User) => (
+        <li key={user.id}>
+          <Link href={`/users/${user.id}`} className="underline">
+            {user.first_name} {user.last_name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+async function getUsers() {
+  const res = await fetch(`${API_URL}/users`);
+  return res.json();
 }

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -19,8 +19,39 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw + 1rem, 3.5rem);
+    @apply font-bold text-gray-900 leading-tight;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 5vw + 0.5rem, 3rem);
+    @apply font-semibold text-gray-900 leading-snug;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 4vw + 0.5rem, 2.5rem);
+    @apply font-semibold text-gray-900 leading-snug;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 3vw + 0.5rem, 2rem);
+    @apply font-medium text-gray-900 leading-snug;
+  }
+
+  h5 {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+    @apply font-medium text-gray-800 leading-snug;
+  }
+
+  h6 {
+    font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1.25rem);
+    @apply font-medium text-gray-700 leading-snug;
+  }
 }
