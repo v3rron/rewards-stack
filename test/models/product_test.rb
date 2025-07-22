@@ -24,6 +24,6 @@ class ProductTest < ActiveSupport::TestCase
   # Test callback or UUID presence if you have one
   test "should have UUID id after creation" do
     product = create(:product)
-    assert_match(/\A[0-9a-f\-]{36}\z/, product.id)
+    assert_match(UUID_REGEX, product.id)
   end
 end

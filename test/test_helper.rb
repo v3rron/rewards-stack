@@ -7,6 +7,8 @@ module ActiveSupport
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
 
+    UUID_REGEX = /\A[0-9a-f\-]{36}\z/
+
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     # fixtures :all
 

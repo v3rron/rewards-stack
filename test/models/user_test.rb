@@ -18,6 +18,6 @@ class UserTest < ActiveSupport::TestCase
   # test callbacks
   test "should have UUID id after creation" do
     user = create(:user)
-    assert_match(/\A[0-9a-f\-]{36}\z/, user.id)
+    assert_match(UUID_REGEX, user.id)
   end
 end
