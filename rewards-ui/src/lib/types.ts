@@ -11,3 +11,10 @@ export type Product = {
   price: number;
   stock: number;
 };
+
+export type Redemption = {
+  id: string;
+  user: User;
+  product: Product;
+  created_at: Date;
+};

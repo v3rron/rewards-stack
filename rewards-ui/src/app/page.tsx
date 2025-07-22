@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { Skeleton } from '@components';
-import { API_URL } from '@lib/constants';
 import { User } from '@lib/types';
+import { getUsers } from '@lib/api';
 
 export default function Home() {
   return (
@@ -17,7 +17,13 @@ export default function Home() {
 }
 
 async function Users() {
-  const users: User[] = await getUsers();
+  const response = await getUsers();
+
+  if (!response.success) {
+    return 'There was a problem fetching users';
+  }
+
+  const users: User[] = response.data;
 
   return (
     <ul className="space-y-4">
@@ -30,9 +36,4 @@ async function Users() {
       ))}
     </ul>
   );
-}
-
-async function getUsers() {
-  const res = await fetch(`${API_URL}/users`);
-  return res.json();
 }

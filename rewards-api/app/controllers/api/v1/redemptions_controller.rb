@@ -3,9 +3,9 @@ class Api::V1::RedemptionsController < ApplicationController
 
   # GET /redemptions
   def index
-    @redemptions = Redemption.all
+    @redemptions = Redemption.includes(:product).all
 
-    render json: @redemptions
+    render json: @redemptions.as_json(include: :product)
   end
 
   # GET /redemptions/1
