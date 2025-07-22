@@ -19,7 +19,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_22_004123) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "redemptions", force: :cascade do |t|
+  create_table "redemptions", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.string "user_id", null: false
     t.string "product_id", null: false
     t.integer "points"

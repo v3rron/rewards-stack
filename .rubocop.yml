@@ -10,4 +10,11 @@ Layout/SpaceInsideArrayLiteralBrackets:
 
 Layout/SpaceInsidePercentLiteralDelimiters:
   Enabled: true
-  EnforcedStyle: no_space
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: key
