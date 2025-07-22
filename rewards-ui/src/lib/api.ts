@@ -3,7 +3,7 @@ import { API_URL } from './constants';
 type JsonResponse = {
   success: boolean;
   status?: number;
-  data?: any;
+  data?: unknown;
   errors?: string[];
 };
 
@@ -11,7 +11,7 @@ const errorResponse = (status: number = 400, error: string = 'Unknown error'): J
   return { success: false, status, data: null, errors: [error] };
 };
 
-const successResponse = (data: any): JsonResponse => {
+const successResponse = (data: unknown): JsonResponse => {
   return { success: true, data };
 };
 

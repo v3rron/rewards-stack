@@ -1,8 +1,8 @@
+import Link from 'next/link';
 import { Suspense } from 'react';
 import { Skeleton, UserRedemptions } from '@components';
-import { Redemption, User } from '@lib/types';
-import { getRedemptions, getUser } from '@lib/api';
-import Link from 'next/link';
+import { Redemption } from '@lib/types';
+import { getRedemptions } from '@lib/api';
 
 type RedemptionsPageProps = {
   params: Promise<{ userId: string }>;
@@ -16,7 +16,7 @@ export default async function RedemptionsPage({ params }: RedemptionsPageProps) 
     return 'Data fetching failed';
   }
 
-  const redemptions: Redemption[] = response.data;
+  const redemptions: Redemption[] = response.data || [];
 
   return (
     <div className="flex-1 flex flex-col gap-[32px] min-w-[400px] justify-center items-center sm:items-start">
