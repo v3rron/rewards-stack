@@ -3,8 +3,8 @@ class Api::V1::RedemptionsController < ApplicationController
 
   # GET /redemptions
   def index
-    @redemptions = Redemption.includes(:product).all
-
+    user = User.find(params[:user_id])
+    @redemptions = user.redemptions.includes(:product)
     render json: @redemptions.as_json(include: :product)
   end
 

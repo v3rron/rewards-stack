@@ -13,12 +13,10 @@ export default async function UserPage({ params }: UserPageProps) {
   const response1 = await getUser(userId);
   const response2 = await getProducts();
 
-  console.log({ response1 });
-
   if (!response1.success) {
-    return 'User not found';
+    return response1.status === 404 ? 'User not found' : 'Server unavailable';
   } else if (!response2.success) {
-    return 'Products not found';
+    return 'Data fetching failed';
   }
 
   const user: User = response1.data;

@@ -1,16 +1,19 @@
 'use client';
 
-import { Redemption, User } from '@lib/types';
+import { Redemption } from '@lib/types';
 
-type ProductsProps = {
-  user: User;
+type RedemptionProps = {
   redemptions: Redemption[];
 };
 
-export function UserRedemptions({ user, redemptions }: ProductsProps) {
+export function UserRedemptions({ redemptions }: RedemptionProps) {
+  if (!redemptions.length) {
+    return 'No redemptions found';
+  }
   return (
     <div className="space-y-4">
       {redemptions.map((redemption: Redemption) => {
+        const createdAt = new Date(redemption.created_at);
         return (
           <div
             key={redemption.id}
@@ -19,7 +22,7 @@ export function UserRedemptions({ user, redemptions }: ProductsProps) {
             <div className="flex flex-1 gap-8 w-full justify-between">
               <div>
                 <div>{redemption.product.name}:</div>
-                <div>{redemption.created_at.toString()}</div>
+                <div>{createdAt.toLocaleString()}</div>
               </div>
               <div className="flex flex-col justify-end text-right">
                 <div>{redemption.product.price} points</div>

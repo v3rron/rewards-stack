@@ -15,7 +15,7 @@ Redemption.delete_all
 
 puts "Database reset"
 
-[500, 200, 50].each_with_index do |user_points, idx|
+[5000, 1000, 500, 200, 50].each_with_index do |user_points, idx|
   User.create!(
     email: "user#{idx + 1}@test.com",
     first_name: Faker::Name.first_name,

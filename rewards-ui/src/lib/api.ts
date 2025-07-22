@@ -57,9 +57,9 @@ export async function getProducts() {
   }
 }
 
-export async function getRedemptions() {
+export async function getRedemptions(userId: string) {
   try {
-    const res = await fetch(`${API_URL}/redemptions`);
+    const res = await fetch(`${API_URL}/redemptions?user_id=${userId}`);
     return parseResponse(res);
   } catch {
     return errorResponse(500);

@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex-1 flex flex-col gap-[32px] justify-center items-center sm:items-start">
       <em>Note: Since this is a demo project, there is no authentication.</em>
       <h3 className="font-bold mb-0">Pick your character:</h3>
-      <Suspense fallback={<Skeleton count={3} />}>
+      <Suspense fallback={<Skeleton />}>
         <Users />
       </Suspense>
     </div>
