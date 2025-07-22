@@ -23,7 +23,7 @@ async function Users() {
     return 'There was a problem fetching users';
   }
 
-  const users: User[] = response.data;
+  const users: User[] = response.data as User[];
 
   return (
     <ul className="space-y-4">

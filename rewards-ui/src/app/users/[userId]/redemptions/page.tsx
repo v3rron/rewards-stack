@@ -16,7 +16,7 @@ export default async function RedemptionsPage({ params }: RedemptionsPageProps) 
     return 'Data fetching failed';
   }
 
-  const redemptions: Redemption[] = response.data || [];
+  const redemptions: Redemption[] = response.data as Redemption[];
 
   return (
     <div className="flex-1 flex flex-col gap-[32px] min-w-[400px] justify-center items-center sm:items-start">

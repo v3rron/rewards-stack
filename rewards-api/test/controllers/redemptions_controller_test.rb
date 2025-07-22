@@ -9,7 +9,7 @@ class RedemptionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get api_v1_redemptions_url, as: :json
+    get api_v1_redemptions_url(params: { user_id: User.first.id }), as: :json
     assert_response :success
   end
 

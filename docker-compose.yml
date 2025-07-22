@@ -1,0 +1,26 @@
+services:
+  api:
+    build:
+      context: ./rewards-api
+    command: bash -c "bundle exec rails db:migrate && bundle exec rails db:seed && bundle exec rails s -e production -b 0.0.0.0"
+    volumes:
+      - ./rewards-api:/app
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./rewards-api/.env
+    environment:
+      RAILS_ENV: production
+
+  ui:
+    build:
+      context: ./rewards-ui
+    command: pnpm start
+    volumes:
+      - ./rewards-ui:/app
+    ports:
+      - "4000:8080"
+    env_file:
+      - ./rewards-ui/.env
+    environment:
+      NODE_ENV: production

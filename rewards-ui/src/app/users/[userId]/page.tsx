@@ -19,8 +19,8 @@ export default async function UserPage({ params }: UserPageProps) {
     return 'Data fetching failed';
   }
 
-  const user: User = response1.data;
-  const products: Product[] = response2.data;
+  const user: User = response1.data as User;
+  const products: Product[] = response2.data as Product[];
 
   return (
     <div className="flex-1 flex flex-col gap-[32px] min-w-[400px] justify-center items-center sm:items-start">
