@@ -51,6 +51,8 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.5"
   # Gem for creating fake test attributes
   gem "faker", "~> 3.5"
+  # Debugging tool
+  gem "byebug"
 end
 
 # Secures CORS for frontend app access

@@ -1,6 +1,7 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  include FactoryBot::Syntax::Methods
   # Test validations
   test "email must be present" do
     user = User.new(email: nil)
@@ -16,7 +17,7 @@ class UserTest < ActiveSupport::TestCase
 
   # test callbacks
   test "should have UUID id after creation" do
-    user = FactoryBot.create(:user)
+    user = create(:user)
     assert_match(/\A[0-9a-f\-]{36}\z/, user.id)
   end
 end
