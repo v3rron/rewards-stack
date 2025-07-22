@@ -1,8 +1,9 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  include FactoryBot::Syntax::Methods
   setup do
-    @user = users(:one)
+    @user = create(:user)
   end
 
   test "should get index" do
@@ -12,7 +13,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference("User.count") do
-      post api_v1_users_url, params: { user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, points: @user.points } }, as: :json
+      post api_v1_users_url, params: { user: attributes_for(:user) }, as: :json
       puts @user.errors.full_messages
     end
 
@@ -25,7 +26,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch api_v1_user_url(@user), params: { user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, points: @user.points } }, as: :json
+    patch api_v1_user_url(@user), params: { user: @user }, as: :json
     assert_response :success
   end
 

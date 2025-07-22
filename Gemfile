@@ -47,6 +47,10 @@ group :development, :test do
 
   # Loads .env file into environment in development/test mode
   gem "dotenv-rails", "~> 3.1"
+  # FactoryBot for creating testing objects
+  gem "factory_bot_rails", "~> 6.5"
+  # Gem for creating fake test attributes
+  gem "faker", "~> 3.5"
 end
 
 # Secures CORS for frontend app access
