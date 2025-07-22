@@ -13,6 +13,8 @@ User.delete_all
 Product.delete_all
 Redemption.delete_all
 
+puts "Database reset"
+
 [500, 200, 50].each_with_index do |user_points, idx|
   User.create!(
     email: "user#{idx + 1}@test.com",
@@ -22,6 +24,8 @@ Redemption.delete_all
   )
 end
 
+puts "#{User.count} users created"
+
 Product.create!(name: Faker::Commerce.product_name, price: 51, stock: 2)
 Product.create!(name: Faker::Commerce.product_name, price: 100, stock: 0)
 Product.create!(name: Faker::Commerce.product_name, price: 200, stock: 2)
@@ -29,3 +33,5 @@ Product.create!(name: Faker::Commerce.product_name, price: 200, stock: 2)
 7.times do
   Product.create!(name: Faker::Commerce.product_name, price: rand(100..1000), stock: rand(0..10))
 end
+
+puts "#{Product.count} products created"
