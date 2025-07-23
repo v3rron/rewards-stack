@@ -20,8 +20,8 @@ This is a **Rails API-only** application used to manage users, products, and red
 bundle install
 ```
 2. Set environment variables: Copy .env.example to .env:
-```env
-APP_URL=http://localhost:4000
+```bash
+cp .env.example .env
 ```
 3. Setup the database
 ```bash
