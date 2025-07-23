@@ -33,10 +33,10 @@ docker-compose restart api
 ---
 
 ## Production Considerations
-- Add JWT authentication through [devise-jwt](https://rubygems.org/gems/devise-jwt)
+- Add JWT authentication with [devise-jwt](https://rubygems.org/gems/devise-jwt)
+- And authorization with [pundit](https://rubygems.org/gems/pundit)
 - Add [jbuilder](https://rubygems.org/gems/jbuilder) support for structured API responses
-- And authorization through [pundit](https://rubygems.org/gems/pundit)
-- Add [will_pagenate](https://rubygems.org/gems/will_paginate) for pagination
+- Add [will_paginate](https://rubygems.org/gems/will_paginate) for result pagination
 -	Replace SQLite with Postgres or Aurora for scale.
 -	Use nginx or traefik as a reverse proxy with HTTPS.
 -	Consider deploying with a CI/CD tool and external secrets management.
