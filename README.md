@@ -13,11 +13,19 @@ This repository orchestrates the **Rewards API (Rails)** and **Rewards UI (Next.
 ---
 
 ## Usage
-Build and Start the Full Stack
+Build and start the full stack
 ```bash
 docker-compose up -d --build
 ```
-Stop and Remove Containers
+Check container status
+```bash
+docker-compose ps
+```
+SSH into a container
+```bash
+docker-compose exec api|ui bash
+```
+Stop and remove containers
 ```bash
 docker-compose down -v
 ```
