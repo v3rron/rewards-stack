@@ -26,9 +26,8 @@ pnpm install
 ```
 2. Set environment variables:
 Copy .env.example to .env:
-```env
-API_URL=http://localhost:3000
-PORT=4000
+```bash
+cp .env.example .env
 ```
 3. Run the dev server
 ```bash
