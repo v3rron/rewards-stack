@@ -32,6 +32,7 @@ const parseResponse = async (res: Response) => {
 
 export async function getUsers() {
   try {
+    // console.log(`fetching from: ${API_URL}/users, cache: no-store`);
     const res = await fetch(`${API_URL}/users`, { cache: 'no-store' });
     return parseResponse(res);
   } catch {

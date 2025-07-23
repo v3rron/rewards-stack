@@ -6,16 +6,22 @@ services:
       - ./rewards-api:/app
     ports:
       - "3000:3000"
-    env_file:
-      - ./rewards-api/.env
     environment:
       RAILS_ENV: production
+      APP_URL: http://ui:4000
+    networks:
+      - rewards-net
   ui:
     build: ./rewards-ui
     command: pnpm start
     ports:
       - "4000:4000"
-    env_file:
-      - ./rewards-ui/.env
     environment:
       NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://api:3000/api/v1
+    networks:
+      - rewards-net
+
+networks:
+  rewards-net:
+    driver: bridge
