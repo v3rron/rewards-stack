@@ -19,11 +19,15 @@ This is a **Rails API-only** application used to manage users, products, and red
 ```bash
 bundle install
 ```
-2. Setup the database
+2. Set environment variables: Copy .env.example to .env:
+```env
+APP_URL=http://localhost:4000
+```
+3. Setup the database
 ```bash
 bin/rails db:create db:migrate db:seed
 ```
-3. Run the API server
+4. Run the API server
 ```bash
 bin/rails server
 ```
