@@ -9,9 +9,9 @@
 #   end
 
 # NOTE: Don't do this in real production!
-User.delete_all
-Product.delete_all
 Redemption.delete_all
+Product.delete_all
+User.delete_all
 
 puts "Database reset"
 
